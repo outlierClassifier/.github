@@ -1,23 +1,51 @@
-# Sistema de Clasificación Binaria con Arquitectura de Votación
+# Binary Classification and Prediction System with Voting Mechanism
 
-## Descripción General
-Sistema de clasificación binaria que implementa un mecanismo de votación entre múltiples modelos de machine learning. La arquitectura cliente-servidor permite procesar datos con estructura temporal y multidimensional provenientes de 8 experimentos (4 de cada clase binaria), utilizando 7 características por experimento y aproximadamente 12,000 mediciones temporales secuenciales por experimento (tomadas cada 16ms).
+<div align="center">
+  <h2>📚 📥 Download Documentation</h2>
+  <p><strong>Access the complete research memo in PDF format</strong></p>
+  
+  <table>
+    <tr>
+      <td align="center">
+        <h3>🖥️ Digital Version</h3>
+        <a href="https://outlierclassifier.github.io/memo/digital.pdf">
+          <img src="https://img.shields.io/badge/📄_DIGITAL_PDF-Download_Now-FF6B6B?style=for-the-badge&logo=adobeacrobatreader&logoColor=white&labelColor=2C3E50" alt="Download Digital PDF" height="50"/>
+        </a>
+        <br><em>Optimized for screen reading</em>
+      </td>
+      <td width="50"></td>
+      <td align="center">
+        <h3>🖨️ Print Version</h3>
+        <a href="https://outlierclassifier.github.io/memo/print.pdf">
+          <img src="https://img.shields.io/badge/📄_PRINT_PDF-Download_Now-4ECDC4?style=for-the-badge&logo=adobeacrobatreader&logoColor=white&labelColor=2C3E50" alt="Download Print PDF" height="50"/>
+        </a>
+        <br><em>Formatted for physical printing</em>
+      </td>
+    </tr>
+  </table>
+</div>
 
-## Arquitectura
-El sistema está dividido en componentes modulares:
+## Overview
+Binary classification and prediction system that implements a voting mechanism among multiple machine learning models. The client-server architecture allows processing of temporally and multidimensionally structured data. Each model is implemented as an independent microservice, and is responsible for its own data preprocessing and prediction logic.
 
-### Servidor Central (JavaScript/Node.js)
-- Orquesta peticiones a los diversos modelos de clasificación
-- Implementa mecanismos de votación (inicialmente por mayoría)
-- Proporciona interfaz visual para configuración y visualización
-- Maneja timeout y disponibilidad de modelos
-- Gestiona asincrónicamente las respuestas de los modelos
+## Architecture
+The system is divided into modular components:
 
-### Endpoints de Modelos (Rust/C++)
-- APIs independientes implementando tres algoritmos:
+### Central Server (JavaScript/Node.js)
+- Orchestrates requests to the various classification models
+- Implements voting mechanisms (initially by majority)
+- Provides a visual interface for configuration and visualization
+- Manages timeouts and model availability
+- Asynchronously handles model responses
+
+### Model Endpoints (Rust/C++)
+- Independent APIs implementing six algorithms:
   - SVM
   - LSTM
   - XGBoost
-- Cada modelo realiza su propio preprocesamiento de datos
-- Retorna predicciones y niveles de confianza
-- Implementa healthcheck para verificar disponibilidad
+  - One-Class SVM
+  - Isolation Forest
+  - Custom CNN
+- Each model performs its own data preprocessing
+- Returns predictions and confidence levels
+- Implements healthcheck to verify availability
