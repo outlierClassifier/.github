@@ -1,4 +1,4 @@
-# Binary Classification and Prediction System with Voting Mechanism
+# Real-Time Anomaly Detection System for Multidimensional Projections
 
 <div align="center">
   <h2>📚 📥 Download Documentation</h2>
